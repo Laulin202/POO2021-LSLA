@@ -1,18 +1,18 @@
 #include <iostream>
 
-using namespace std;
+//using namespace std;
 const float IVA = 1.19;
 
-int calcularIVA( int precio ){
-   int precioIVA;
+float calcularIVA( float precio ){
+   float precioIVA;
    precioIVA = precio / IVA;
    return precioIVA;
 } 
 
-int main( ){
-    int precio;
+int main(){
+    float precio;
     printf( "Ingrese precio a calcular:\n");
-    cin >> precio;
-    cout << "El precio total es: uwu " << calcularIVA(precio) << endl;
+    std::cin >> precio;
+    std::cout << "El precio total es: " << calcularIVA(precio) << "\n"; // \n o endl
     return 0; 
 }

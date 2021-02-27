@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+//using namespace std;
 
 typedef struct persona persona;
 
@@ -14,14 +14,14 @@ struct persona
 persona generarPersona(){
     persona p;
 
-    cout << "Digite la edad:" <<endl;
-    cin >> p.edad;
+    std::cout << "Digite la edad:" <<endl;
+    std::cin >> p.edad;
 
-    cout << "Digite el sexo:" <<endl;
-    cin >> p.sexo;
+    std::cout << "Digite el sexo:" <<endl;
+    std::cin >> p.sexo;
 
-    cout << "Digite la altura:" <<endl;
-    cin >> p.altura;
+    std::cout << "Digite la altura:" <<endl;
+    std::cin >> p.altura;
 
     return p;
 }
@@ -32,8 +32,8 @@ int main(){
 
     p = generarPersona();
 
-    cout << " Edad:" << p.edad << endl;
-    cout << " Altura:" << p.altura << endl;
-    cout << " sexo:" << p.sexo << endl;
+    std::cout << " Edad:" << p.edad << endl;
+    std::cout << " Altura:" << p.altura << endl;
+    std::cout << " sexo:" << p.sexo << endl;
 
 }

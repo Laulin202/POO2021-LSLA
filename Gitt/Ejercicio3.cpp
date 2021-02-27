@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <stdlib.h>
+#include <cstdlib>
 
 #define CAP 10
 
@@ -17,18 +17,18 @@ struct contacto{
 };
 
 contacto generarContacto(){
-    contacto p;
+    contacto contacto;
 
     cout << "Digite nombre:" << endl;
-    cin >> p.nombre;
+    cin >> contacto.nombre;
 
     cout << "Digite apellido:" << endl;
-    cin >> p.apellido;
+    cin >> contacto.apellido;
 
     cout << "Digite tel:" << endl;
-    cin >> p.tel;
+    cin >> contacto.tel;
 
-    return p;
+    return contacto;
 }
 
 void mostrarContactos( contacto * listaContactos ){
@@ -62,7 +62,6 @@ void generarArchivo( contacto * listaContactos ){
     }
 
     archivo.close();
-
 
 }
 
@@ -111,11 +110,9 @@ void menu(){
                 break;
         }
 
-    
     } while (op);
     
 }
-
 
 int main(){
 
