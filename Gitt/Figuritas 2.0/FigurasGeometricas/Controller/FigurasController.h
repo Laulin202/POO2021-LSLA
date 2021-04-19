@@ -1,5 +1,7 @@
-//#ifndef FIGURAS_CONTROLLER_H
+#ifndef FIGURAS_CONTROLLER_H
 // Guardas
+#define FIGURAS_CONTROLLER_H
+
 #include "../Model/Circulo.h"
 #include "../Model/Triangulo.h"
 #include "../Model/Rectangulo.h"
@@ -25,7 +27,7 @@ public:
     // Retorna referencia a la lista de rectangulos
     
     void agregarRectagulo(float largo, float ancho);
-    void agregarTriagulo(float base, float altura);
+    void agregarTriagulo(float base, float altura, string color);
     void agregarCirculo(float radio);
 
     /**
@@ -41,4 +43,6 @@ public:
     list<Triangulo>& getListaTriangulo(); 
     
 };
-//#define FIGURAS_CONTROLLER_H
+
+
+#endif //FIGURAS_CONTROLLER_H

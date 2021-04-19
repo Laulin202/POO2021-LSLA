@@ -1,5 +1,6 @@
-//#ifndef MAIN_H
+#ifndef MAIN_H
 // Guardas
+#define MAIN_H
 
 /* Mostrar menua y validar datos de entrada */
 #include "../Controller/FigurasController.h"
@@ -28,4 +29,5 @@ public:
     int mostrarMenu();
     void verPrincipal();
 };
-//#define FIGURAS_CONTROLLER_H
+
+#endif //MAIN_H

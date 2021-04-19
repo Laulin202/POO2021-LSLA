@@ -1,28 +1,28 @@
-//#ifndef TRINANGULO_H
+#ifndef TRINANGULO_H
 // Guardas
-//#define TRIANGULO_H
+#define TRIANGULO_H
 
 //CLASE TRIANGULO
 
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
+#include "FiguraGeometrica.h"
 
 using std::cin;
 using std::cout;
 using std::endl;
 
-class Triangulo
-{
-private:
-    float base, altura;
+class Triangulo : public FiguraGeometrica{
+    private:
+        float base, altura;
 
-public:
-    Triangulo();
-    Triangulo(float base, float altura);
-    void calcularArea();
-    void calcularPerimetro();
-    void mostrarTriangulo();
+    public:
+        Triangulo();
+        Triangulo(float base, float altura, string color);
+        void calcularArea(); //POLIMORFISMO
+        void calcularPerimetro();
+        void mostrarFigura();
 };
 
-//#endif /* !TRIANGULO_H */
+#endif //TRIANGULO_H 

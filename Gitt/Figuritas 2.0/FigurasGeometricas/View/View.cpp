@@ -53,7 +53,7 @@ void View::mostrarCirculos(){
     list<Circulo>& refListaCirculo = controller.getListaCirculo();
     for( list<Circulo>::iterator it = refListaCirculo.begin(); it != refListaCirculo.end(); it++ ){
         cout << "Circulo "<< cont++ << ". ";
-        it->mostrarCirculo();
+        it->mostrarFigura();
     }
 }
 
@@ -61,15 +61,18 @@ void View::mostrarCirculos(){
 
 void View::pedirDatosTriangulo(){
     float base, altura;
+    string color;
     do{
         cout << "Digite base del triangulo: ";
         cin >> base;
         cout << "Digite altura del triangulo: "; 
         cin >> altura;
+        cout << "Digite el color del triangulo: "; 
+        cin >> color;
 
     }while( base <= 0 || altura <=0 );
 
-    this->controller.agregarTriagulo( base, altura );
+    this->controller.agregarTriagulo( base, altura, color );
 }
 
 void View::mostrarTriangulos(){
@@ -77,7 +80,7 @@ void View::mostrarTriangulos(){
     list<Triangulo>& refListaTriangulo = controller.getListaTriangulo();
     for( list<Triangulo>::iterator it = refListaTriangulo.begin(); it != refListaTriangulo.end(); it++){
         cout << "Triangulo " << ++cont << endl;
-        it->mostrarTriangulo();
+        it->mostrarFigura();
     }
 }
 

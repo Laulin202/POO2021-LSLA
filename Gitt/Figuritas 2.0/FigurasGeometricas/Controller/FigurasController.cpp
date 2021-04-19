@@ -33,11 +33,11 @@ void FigurasController::agregarCirculo(const float radio){
     }
 }
 
-void FigurasController::agregarTriagulo(const float base, const float altura){
+void FigurasController::agregarTriagulo(const float base, const float altura, string color){
 
     if(this->listaTriangulo.size() < MAX_ITEMS){
         cout << "Agregaremos el triangulo! " << endl;
-        this->listaTriangulo.push_back(Triangulo( base, altura));
+        this->listaTriangulo.push_back(Triangulo( base, altura, color));
     }
     else{
         //FIXME agregar manejo de excepcion

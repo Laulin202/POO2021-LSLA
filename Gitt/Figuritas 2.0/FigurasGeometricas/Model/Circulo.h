@@ -1,9 +1,10 @@
-//#ifndef CIRCULO_H
+#ifndef CIRCULO_H
 // Guardas
-//#define CIRCULO_H
+#define CIRCULO_H
 
 #include <iostream>
 #include <cstdlib>
+#include "FiguraGeometrica.h"
 
 using std::cin;
 using std::cout;
@@ -11,20 +12,20 @@ using std::endl;
 
 //CLASE CIRCULO
 
-class Circulo
-{
-private: //atributos
-    float radio;
-    const static float PI;
+class Circulo : public FiguraGeometrica{
 
-public:
-    Circulo(); //NO OLVIDAR
-    Circulo(float);
-    void calcularArea();
-    void calcularPerimetro();
-    float getRadio();
-    void setRadio(float);
-    void mostrarCirculo();
+    private: //atributos
+        float radio;
+        const static float PI;
+
+    public:
+        Circulo(); //NO OLVIDAR
+        Circulo(float);
+        void calcularArea();
+        void calcularPerimetro();
+        float getRadio();
+        void setRadio(float);
+        void mostrarFigura();
 };
 
-//#endif /* !CIRCULO_H */
+#endif //CIRCULO_H 

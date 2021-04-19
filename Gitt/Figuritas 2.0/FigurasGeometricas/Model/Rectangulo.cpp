@@ -4,7 +4,7 @@
 
 Rectangulo::Rectangulo() {}
 
-Rectangulo::Rectangulo(float ancho, float largo)
+Rectangulo::Rectangulo(float ancho, float largo) : Rectangulo()
 {
 
     this->ancho = ancho;
@@ -17,6 +17,8 @@ void Rectangulo::calcularArea()
 {
     float area;
     area = largo * ancho;
+
+    setArea(area); //metodo del papá (FiguraGeometrica)
     cout << "El area del rectangulo es: " << area << endl;
 }
 
@@ -24,6 +26,8 @@ void Rectangulo::calcularPerimetro()
 {
     float perimetro;
     perimetro = (2 * largo) + (2 * ancho);
+
+    setPerimetro(perimetro); //metodo del papá (FiguraGeometrica)
     cout << "El perimetro del rectangulo es : " << perimetro << endl;
 }
 
