@@ -17,21 +17,18 @@ Triangulo::Triangulo(float base, float altura, string color):FiguraGeometrica(co
 
 void Triangulo::calcularArea()
 {
-    float area;
-    area = (base * altura) / 2;
-
-    setArea(area); //funcion del papá(figuras geometricas)
+    this->area = (this->base * this->altura) / 2;  //"area" es atributo protegido de la clase papá (FigurasG)
 
     //std::cout << "El area del Triangulo es: " << area << std::endl;
 }
 
 void Triangulo::calcularPerimetro()
 {
-    float perimetro, temp;
-    temp = base / 2;
-    perimetro = 2 * ((sqrt((temp * temp)) + (altura * altura))) + base;
+    float temp;
+    temp = this->base / 2;
 
-    setPerimetro(perimetro);
+    this->perimetro = 2 * ((sqrt((temp * temp)) + (this->altura * this->altura))) + this->base; //"perimetro" es atributo protegido de la clase papa"
+
     //std::cout << "El perimetro del Triangulo es: " << perimetro << std::endl;
 }
 
@@ -43,9 +40,15 @@ void Triangulo::mostrarFigura(){
     objeto de clase circulo, triangulo, o rectangulo llamas el .calcularArea() hará el calcular area de la clase triangulo, circulo 
     o rectangulo. " */
 
+    if (this->area == 0 || this->perimetro == 0){
+        if(this->area == 0)
+            calcularArea();
+        if(this->perimetro == 0)
+            calcularPerimetro();
+    }
+
     cout << "Base: " << this->base << endl;
     cout << "Altura: " << this->altura << endl;
-    //falta mostrar area y perimetro 
-    cout << "Area: " << getArea() << endl;
-    cout << "Perimetro: " << getPerimetro() << endl;
+    cout << "Area: " << this->area << endl;     //atributos protegidos del padre         
+    cout << "Perimetro: " << this->perimetro << endl;   //atributos protegidos del padre
 }

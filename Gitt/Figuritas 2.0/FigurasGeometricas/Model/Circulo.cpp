@@ -8,7 +8,7 @@ Circulo::Circulo()
 {
 }
 
-Circulo::Circulo(float radio) : Circulo()
+Circulo::Circulo(float radio, string color) : FiguraGeometrica(color)
 {
 
     this->radio = radio;
@@ -18,32 +18,38 @@ Circulo::Circulo(float radio) : Circulo()
 
 void Circulo::calcularArea()
 {
-    float area;
-    area = PI * (radio * radio);
 
-    setArea(area);
+    this->area = PI * (radio * radio);
+
 }
 
 void Circulo::calcularPerimetro()
 {
-    float perimetro;
-    perimetro = (2 * PI) * radio;
-    cout << "El perimetro del circulo es: " << perimetro << endl;
-    setPerimetro(perimetro);
+
+    this->perimetro = (2 * PI) * radio;
 }
 
 float Circulo::getRadio()
 {
-
     return this->radio;
 }
 
 void Circulo::setRadio(float radio)
 {
-
     this->radio = radio;
 }
 
 void Circulo::mostrarFigura(){
+    FiguraGeometrica::mostrarFigura();
+
+    if (this->area == 0 || this->perimetro == 0){
+        if(this->area == 0)
+            calcularArea();
+        if(this->perimetro == 0)
+            calcularPerimetro();
+    }
+
     cout << "El radio es: " << this->radio << endl;
+    cout << "El area es: " << this->area << endl;
+    cout << "El perimetro es: " << this->perimetro << endl;
 }

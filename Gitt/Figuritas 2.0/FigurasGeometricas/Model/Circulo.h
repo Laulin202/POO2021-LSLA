@@ -20,7 +20,7 @@ class Circulo : public FiguraGeometrica{
 
     public:
         Circulo(); //NO OLVIDAR
-        Circulo(float);
+        Circulo(float, string);
         void calcularArea();
         void calcularPerimetro();
         float getRadio();

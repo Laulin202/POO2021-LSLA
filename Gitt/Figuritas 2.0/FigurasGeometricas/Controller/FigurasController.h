@@ -2,9 +2,11 @@
 // Guardas
 #define FIGURAS_CONTROLLER_H
 
+#include "../Model/FiguraGeometrica.h" //Nuevo
 #include "../Model/Circulo.h"
 #include "../Model/Triangulo.h"
 #include "../Model/Rectangulo.h"
+#include "../Model/Cuadrado.h"
 
 #include <iostream>
 #include <list>
@@ -22,13 +24,17 @@ private:
     list<Rectangulo> listaRectangulo;
     list<Circulo> listaCirculo;
     list<Triangulo> listaTriangulo;
+    list<Cuadrado> listaCuadrado;
+    //NUEVO:
+    list<FiguraGeometrica *> pListaFiguras;
 
 public:
     // Retorna referencia a la lista de rectangulos
     
-    void agregarRectagulo(float largo, float ancho);
+    void agregarRectagulo(float largo, float ancho, string color);
     void agregarTriagulo(float base, float altura, string color);
-    void agregarCirculo(float radio);
+    void agregarCirculo(float radio, string color);
+    void agregarCuadrado(float lado, string color);
 
     /**
        * Retorna la referencia al rectangulo que tenga el mayor ancho       
@@ -41,6 +47,10 @@ public:
     list<Rectangulo>& getListaRectangulo();
     list<Circulo>&  getListaCirculo(); 
     list<Triangulo>& getListaTriangulo(); 
+    list<Cuadrado>& getListaCuadrado();
+
+    list<FiguraGeometrica *> &getListaFiguras();
+    void llenarListaTodosDummy();
     
 };
 

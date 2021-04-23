@@ -5,12 +5,14 @@ const int FigurasController::MAX_ITEMS = 10;
 
 //------------------->( AGREGAR FIGURAS )<-----------------------
 
-void FigurasController::agregarRectagulo(const float largo, const float ancho)
+void FigurasController::agregarRectagulo(const float largo, const float ancho, string color)
 {
     if (listaRectangulo.size() < MAX_ITEMS)
     {
         cout << "Agrego rectangulo" << endl;
-        listaRectangulo.push_back(Rectangulo(largo, ancho));
+        Rectangulo *pRectTemp = new Rectangulo(largo, ancho, color);
+        listaRectangulo.push_back(*pRectTemp);
+        pListaFiguras.push_back(pRectTemp); //implementar esta lista
     }
     else
     {
@@ -20,13 +22,17 @@ void FigurasController::agregarRectagulo(const float largo, const float ancho)
     }
 }
 
-void FigurasController::agregarCirculo(const float radio){
+void FigurasController::agregarCirculo(const float radio, string color){
     
-    if(this->listaCirculo.size() < MAX_ITEMS){
-        cout << "Agregaremos el circulo! " << endl;
-        this->listaCirculo.push_back(Circulo(radio));
+    if (listaCirculo.size() < MAX_ITEMS)
+    {
+        cout << "Agrego circulo" << endl;
+        Circulo *pcirculoTemp = new Circulo(radio, color);
+        listaCirculo.push_back(*pcirculoTemp);
+        pListaFiguras.push_back(pcirculoTemp);
     }
-    else{
+    else
+    {
         //FIXME agregar manejo de excepcion
         std::cout << "\nSe sobrepasa el limite\n"
                   << std::endl;
@@ -37,7 +43,9 @@ void FigurasController::agregarTriagulo(const float base, const float altura, st
 
     if(this->listaTriangulo.size() < MAX_ITEMS){
         cout << "Agregaremos el triangulo! " << endl;
-        this->listaTriangulo.push_back(Triangulo( base, altura, color));
+        Triangulo* ptrianguloTem = new Triangulo( base, altura, color);
+        listaTriangulo.push_back(*ptrianguloTem);
+        pListaFiguras.push_back(ptrianguloTem);
     }
     else{
         //FIXME agregar manejo de excepcion
@@ -45,6 +53,38 @@ void FigurasController::agregarTriagulo(const float base, const float altura, st
                   << std::endl;
     }
 
+}
+
+void FigurasController::agregarCuadrado(const float lado, string color){
+
+    if(this->listaCuadrado.size() < MAX_ITEMS){
+        cout << "Agregaremos el cuadrado! " << endl;
+        Cuadrado* pcuadradoTem = new Cuadrado( lado, color); //creo el cuadrado con memoria dinamica
+        listaCuadrado.push_back(*pcuadradoTem);
+        pListaFiguras.push_back(pcuadradoTem);
+    }
+    else{
+        //FIXME agregar manejo de excepcion
+        std::cout << "\nSe sobrepasa el limite\n"
+                  << std::endl;
+    }
+}
+
+void FigurasController::llenarListaTodosDummy()
+{
+    Circulo *pMiCirculo = new Circulo(10, "Rojo");
+    Rectangulo *pMiRectangulo = new Rectangulo(10, 10, "Verde");
+    Rectangulo *pMiRectangulo2 = new Rectangulo(20, 20, "Azul");
+    Triangulo *pMiTriangulo = new Triangulo(11, 22, "Cafe");
+    Triangulo *pMiTriangulo2 = new Triangulo(15, 20, "Cafe");
+    Cuadrado *pMiCuadrado = new Cuadrado(9, "Multicolor");
+    int arreglo[10];
+    this->pListaFiguras.push_back(pMiCirculo);
+    this->pListaFiguras.push_back(pMiRectangulo);
+    this->pListaFiguras.push_back(pMiRectangulo2);
+    this->pListaFiguras.push_back(pMiTriangulo);
+    this->pListaFiguras.push_back(pMiTriangulo2);
+    this->pListaFiguras.push_back(pMiCuadrado);
 }
 
 //------------------->( RETORNOS DE LISTAS )<-----------------------
@@ -66,7 +106,17 @@ list<Triangulo>& FigurasController::getListaTriangulo(){
     return lista;
 }
 
+list<Cuadrado>& FigurasController::getListaCuadrado(){
+    list<Cuadrado>& lista = this->listaCuadrado;
+    return lista;
+}
 
+list<FiguraGeometrica *> &FigurasController::getListaFiguras()
+{
+    return pListaFiguras;
+}
+
+//--------->( Casos de prueba )<-------------
 
 
 Rectangulo& FigurasController::encontrarMayorAncho()

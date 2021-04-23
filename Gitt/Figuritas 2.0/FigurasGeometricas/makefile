@@ -6,9 +6,9 @@ MODEL := Model
 debug := -ggdb3
 
 all: programa
-programa: figurasGeometricas circulo rectangulo triangulo controller view main
-	g++ ${debug} -o Ejecutable FiguraGeometrica.o Circulo.o Rectangulo.o Triangulo.o FigurasController.o View.o Main.o
-controller: ${CONTROLLER}/FigurasController.cpp ${CONTROLLER}/FigurasController.h ${MODEL}/Circulo.h ${MODEL}/Rectangulo.h ${MODEL}/Triangulo.h
+programa: figurasGeometricas circulo rectangulo triangulo cuadrado controller view main
+	g++ ${debug} -o Ejecutable FiguraGeometrica.o Circulo.o Rectangulo.o Triangulo.o Cuadrado.o FigurasController.o View.o Main.o
+controller: ${CONTROLLER}/FigurasController.cpp ${CONTROLLER}/FigurasController.h ${MODEL}/Circulo.h ${MODEL}/Rectangulo.h ${MODEL}/Triangulo.h  ${MODEL}/Cuadrado.h
 	g++ -c ${debug} ${CONTROLLER}/FigurasController.cpp
 circulo: ${MODEL}/Circulo.cpp ${MODEL}/Circulo.h
 	g++ -c ${debug} ${MODEL}/Circulo.cpp
@@ -16,6 +16,8 @@ rectangulo: ${MODEL}/Rectangulo.cpp ${MODEL}/Rectangulo.h
 	g++ -c ${debug} ${MODEL}/Rectangulo.cpp
 triangulo: ${MODEL}/Triangulo.cpp ${MODEL}/Triangulo.h
 	g++ -c ${debug} ${MODEL}/Triangulo.cpp
+cuadrado: ${MODEL}/Cuadrado.cpp ${MODEL}/Cuadrado.h
+	g++ -c ${debug} ${MODEL}/Cuadrado.cpp
 view: ${VIEW}/View.cpp ${VIEW}/View.h ${CONTROLLER}/FigurasController.h
 	g++ -c ${debug} ${VIEW}/View.cpp
 figurasGeometricas: ${MODEL}/FiguraGeometrica.cpp ${MODEL}/FiguraGeometrica.h

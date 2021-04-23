@@ -14,7 +14,7 @@ using std::string;
 
 class FiguraGeometrica{
 
-    private: //atributos
+    protected: //atributos
         string color;
         float area, perimetro;
 
@@ -22,9 +22,9 @@ class FiguraGeometrica{
         FiguraGeometrica(); //NO OLVIDAR
         FiguraGeometrica(string color);
 
-        void mostrarFigura();
-        void calcularArea();
-        void calcularPerimetro();
+        virtual void mostrarFigura();            //Este metodo virtual no es puro por que el metodo del clase padre si hace algo y si se llega a utilizar.
+        virtual void calcularArea() = 0;         //Estos son metodos virtuales PUROS, es decir que nunca se utilizara el metodo del padre,
+        virtual void calcularPerimetro() = 0;    //saltara directamente a usar la clase hija que llamo al su metodo calcular
         float getColor();
         void setColor(string);
         

@@ -21,10 +21,14 @@ public:
     void pedirDatosRectangulo();
     void pedirDatosCirculo();
     void pedirDatosTriangulo(); 
+    void pedirDatosCuadrado(); 
     //mostrar datos
     void mostrarRectangulos();
     void mostrarCirculos(); 
     void mostrarTriangulos();
+    void mostrarCuadrados();
+
+    void mostrarTodos();
 
     int mostrarMenu();
     void verPrincipal();

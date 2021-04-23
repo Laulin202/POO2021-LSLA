@@ -2,9 +2,9 @@
 
 //CONSTRUCTORES RECTANGULO
 
-Rectangulo::Rectangulo() {}
+Rectangulo::Rectangulo(){}
 
-Rectangulo::Rectangulo(float ancho, float largo) : Rectangulo()
+Rectangulo::Rectangulo(float ancho, float largo, string color) :FiguraGeometrica(color)
 {
 
     this->ancho = ancho;
@@ -15,26 +15,32 @@ Rectangulo::Rectangulo(float ancho, float largo) : Rectangulo()
 
 void Rectangulo::calcularArea()
 {
-    float area;
-    area = largo * ancho;
+    this->area = largo * ancho;
 
-    setArea(area); //metodo del papá (FiguraGeometrica)
-    cout << "El area del rectangulo es: " << area << endl;
 }
 
 void Rectangulo::calcularPerimetro()
 {
-    float perimetro;
-    perimetro = (2 * largo) + (2 * ancho);
+    this->perimetro = (2 * largo) + (2 * ancho);
 
-    setPerimetro(perimetro); //metodo del papá (FiguraGeometrica)
-    cout << "El perimetro del rectangulo es : " << perimetro << endl;
 }
 
-void Rectangulo::mostrarFigura() const
+void Rectangulo::mostrarFigura() 
 {
-    cout << "El ancho: " << ancho << " -- "
-         << "el largo: " << largo << endl;
+    FiguraGeometrica::mostrarFigura();
+
+    if (this->area == 0 || this->perimetro == 0){
+        if(this->area == 0)
+            calcularArea();
+        if(this->perimetro == 0)
+            calcularPerimetro();
+    } 
+
+    cout << "El ancho es: " << ancho << endl;
+    cout << "El largo es: " << largo << endl;
+    cout << "El area es: " << this->area << endl;
+    cout << "El perimetro es: " << this->perimetro << endl;
+         
 }
 
 float Rectangulo::getAncho()

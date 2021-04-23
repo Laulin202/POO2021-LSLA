@@ -17,9 +17,9 @@ class Rectangulo : public FiguraGeometrica{
 
     public:
         Rectangulo(); //no olvidar
-        Rectangulo(float, float);
+        Rectangulo(float, float, string);
         
-        void mostrarFigura() const;
+        void mostrarFigura();
         void calcularArea();
         void calcularPerimetro();
 
